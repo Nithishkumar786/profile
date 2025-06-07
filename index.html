@@ -1,64 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nithish Kumar | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nithish Kumar | Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #007acc;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    header nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem;
+      background: white;
+      margin: 1rem auto;
+      max-width: 900px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #007acc;
+    }
+    .project {
+      margin-bottom: 1.5rem;
+    }
+    .project a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #007acc;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #007acc;
+      color: white;
+      margin-top: 2rem;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Nithish Kumar</h1>
-        <p>Frontend Developer | Full Stack Enthusiast</p>
-    </header>
+  <header>
+    <h1>Nithish Kumar</h1>
+    <p>Full Stack Developer</p>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Highly motivated and detail-oriented Software Developer with expertise in Python, JavaScript, HTML, CSS, and front-end frameworks like React.js. Proficient in database management (MySQL, SQL queries) and version control using GitHub. Experienced in developing responsive web applications with a focus on user experience and scalability. Strong understanding of SDLC, Agile methodologies, and problem-solving techniques. Adept at working in collaborative environments, continuously learning new technologies, and delivering efficient, high-quality software solutions.</p>
-    </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Master of Computer Application, Anurag University, Hyderabad (CGPA: 7.8/10)</p>
+    <p>B.Sc., Aurora Degree & PG College, Hyderabad (CGPA: 8.1/10)</p>
+    <p>Front-end developer with skills in Python, JavaScript, HTML, CSS, Bootstrap, PHP, MySQL and more.</p>
+  </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python, JavaScript</li>
-            <li>HTML5, CSS, Bootstrap</li>
-            <li>React.js, Angular (Basic)</li>
-            <li>MySQL, SQL Queries</li>
-            <li>Version Control: GitHub</li>
-            <li>Development Tools: XAMPP, VS Code</li>
-        </ul>
-    </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Python</li>
+      <li>HTML5, CSS, Bootstrap</li>
+      <li>JavaScript</li>
+      <li>PHP</li>
+      <li>MySQL, SQL (DDL, DML, TCL, DQL, DCL)</li>
+      <li>GitHub</li>
+      <li>XAMPP, Visual Studio</li>
+      <li>Basic Azure, SDLC, Agile</li>
+    </ul>
+  </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="https://nithishkumar786.github.io/infoseek/" target="_blank">InfoSeek - Wikipedia Search</a></li>
-            <li><a href="https://nithishkumar786.github.io/know_wheather/" target="_blank">Know Weather - Weather App</a></li>
-            <li><a href="https://nithishkumar786.github.io/tourism-web/" target="_blank">Tourism Web - Travel Guide</a></li>
-            <li><a href="https://nithishkumar786.github.io/todo-List/" target="_blank">To-Do List - Task Manager</a></li>
-            <li><a href="https://nithishkumar786.github.io/responsive-web/" target="_blank">Responsive Web - Web Design</a></li>
-        </ul>
-    </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>InfoSeek - Wikipedia Search App</h3>
+      <p>Built a responsive website using Fetch API to display title, link and text from Wikipedia based on user input.</p>
+      <a href="https://nithishkumar786.github.io/infoseek/" target="_blank">View Project</a>
+    </div>
 
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>Kotlin Programming - Google Developers (AICTE Virtual Internship) <a href = "https://in.docworkspace.com/d/sIP7w0oU0-N6cvQY?sa=601.1094">click</a></li>
-            <li>Python Programming - Hacker Rank <a href = "https://www.hackerrank.com/certificates/591350b7483d">click</a></li>
-            <li>Python Programming - Nxtwave (Industrial ready certification) <a href = "https://certificates.ccbp.in/intensive/programming-foundations?id=WGSPBNZOJP">click</a></li>
-            <li>Responsive web Designing - Nxtwave <a href = "https://certificates.ccbp.in/intensive/responsive-website?id=TSDWXGOLZF">click</a></li>
-        </ul>
-    </section>
+    <div class="project">
+      <h3>Weather Dashboard</h3>
+      <p>A weather app that shows temperature, wind speed, pressure, and sea level using OpenWeatherMap API.</p>
+      <a href="https://nithishkumar786.github.io/know_wheather/" target="_blank">View Project</a>
+    </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:nithishkumarnalla5@gmail.com">nithishkumarnalla5@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/nithishkumar-nalla-617b94228" target="_blank">View Profile</a></p>
-        <p>GitHub: <a href="https://github.com/Nithishkumar786" target="_blank">View Projects</a></p>
-    </section>
+    <div class="project">
+      <h3>AI-Powered Face Detection & Insurance Health Data</h3>
+      <p>Integrated face detection with user health info for insurance system. Inputs include name, gender, BP, diabetes, smoking, alcohol etc.</p>
+      <a href="https://nithishkumar786.github.io/AI-Powered-Face-Detection-and-Health-Data-Integration-for-Insuranc/" target="_blank">View Project</a>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Nithish Kumar. All rights reserved.</p>
-    </footer>
+    <div class="project">
+      <h3>Service Portal (Major Project)</h3>
+      <p>Developed a web platform to connect customers and service providers. Role-based login, dashboard management, service search and order functionality.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: nithishkumar786@gmail.com</p>
+    <p>GitHub: <a href="https://github.com/nithishkumar786" target="_blank">github.com/nithishkumar786</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/nithishkumar-nalla-617b94228">linkedin.com/in/nithishkumar</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nithish Kumar. All rights reserved.</p>
+  </footer>
 </body>
 </html>
