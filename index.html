@@ -1,139 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nithish Kumar | Portfolio</title>
+  <meta charset="UTF-8" />
+  <title>Nalla Nithish Kumar | Software Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
+    :root {
+      --bg: #020617;
+      --bg-alt: #020617;
+      --surface: rgba(15,23,42,0.85);
+      --card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.12);
+      --accent-strong: #06b6d4;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148,163,184,0.25);
+      --shadow-soft: 0 18px 60px rgba(15,23,42,0.85);
+      --radius-lg: 18px;
+      --radius-md: 12px;
     }
-    header {
-      background: #007acc;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+      background: radial-gradient(circle at top,#0b1120 0,#000 55%);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
     }
-    header nav ul {
-      list-style: none;
-      padding: 0;
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    /* Layout */
+    header{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter:blur(18px);
+      background:radial-gradient(circle at top left,rgba(56,189,248,0.12),transparent 55%);
+      border-bottom:1px solid rgba(15,23,42,0.9);
     }
-    header nav ul li {
-      display: inline;
-      margin: 0 10px;
+    .nav-wrap{
+      max-width:1120px;margin:0 auto;
+      padding:1rem 1.25rem 0.8rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
     }
-    header nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+    .brand{
+      display:flex;align-items:center;gap:0.75rem;
     }
-    section {
-      padding: 2rem;
-      background: white;
-      margin: 1rem auto;
-      max-width: 900px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    .avatar{
+      width:40px;height:40px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:radial-gradient(circle at 30% 0%,#22d3ee,#0ea5e9 40%,#0f172a 80%);
+      box-shadow:0 0 0 1px rgba(15,23,42,0.8);
     }
-    h2 {
-      color: #007acc;
+    .brand-text h1{
+      font-size:0.9rem;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--muted);
     }
-    .project {
-      margin-bottom: 1.5rem;
+    .brand-text p{
+      font-size:0.8rem;color:var(--text);
     }
-    .project a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #007acc;
-      text-decoration: underline;
+    nav a{
+      margin-left:1.1rem;font-size:0.9rem;color:var(--muted);
+      position:relative;padding-bottom:0.15rem;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #007acc;
-      color: white;
-      margin-top: 2rem;
+    nav a::after{
+      content:"";position:absolute;left:0;bottom:0;
+      width:0;height:1.5px;border-radius:999px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-strong));
+      transition:width .18s ease-out;
     }
-    ul {
-      padding-left: 20px;
+    nav a:hover{color:var(--text);}
+    nav a:hover::after{width:100%;}
+
+    main{max-width:1120px;margin:0 auto;padding:1.2rem 1.25rem 3.2rem;}
+    section{padding:2.8rem 0;border-bottom:1px solid rgba(15,23,42,0.85);}
+    section:last-of-type{border-bottom:none;}
+
+    /* Hero */
+    .hero-grid{
+      display:grid;grid-template-columns:minmax(0,3.1fr) minmax(0,2.2fr);
+      gap:2.5rem;align-items:center;margin-top:0.8rem;
+    }
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:.45rem;
+      padding:0.25rem 0.7rem;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.4);
+      background:linear-gradient(120deg,rgba(56,189,248,0.14),rgba(30,64,175,0.32));
+      font-size:0.75rem;color:#e0f2fe;text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+    .hero-badge span.dot{
+      width:7px;height:7px;border-radius:999px;
+      background:radial-gradient(circle at 30% 0%,#bef264,#4ade80);
+      box-shadow:0 0 0 4px rgba(34,197,94,0.25);
+    }
+    h2.hero-title{
+      margin-top:1rem;font-size:2.4rem;line-height:1.15;
+    }
+    h2.hero-title span{
+      background:linear-gradient(120deg,#38bdf8,#a855f7);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .hero-sub{
+      margin-top:0.75rem;font-size:1rem;color:var(--muted);
+      max-width:560px;
+    }
+    .hero-meta{
+      display:flex;flex-wrap:wrap;gap:0.9rem;
+      margin-top:1.3rem;font-size:0.87rem;color:var(--muted);
+    }
+    .hero-meta div{padding-right:1rem;border-right:1px solid rgba(51,65,85,0.9);}
+    .hero-meta div:last-child{border-right:none;}
+    .hero-actions{
+      margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.85rem;
+    }
+    .btn{
+      padding:0.6rem 1.2rem;border-radius:999px;font-size:0.9rem;
+      border:1px solid rgba(148,163,184,0.6);
+      display:inline-flex;align-items:center;gap:0.45rem;
+      background:rgba(15,23,42,0.9);color:var(--text);
+      cursor:pointer;transition:all .18s ease-out;
+    }
+    .btn-primary{
+      background:linear-gradient(120deg,#0ea5e9,#22c55e);
+      border-color:transparent;color:#0b1120;font-weight:600;
+      box-shadow:0 12px 35px rgba(8,47,73,0.75);
+    }
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 18px 55px rgba(8,47,73,0.85);}
+    .btn-outline:hover{
+      border-color:var(--accent);
+      background:radial-gradient(circle at top,rgba(56,189,248,0.18),rgba(15,23,42,0.95));
+    }
+
+    .hero-panel{
+      position:relative;
+      padding:1.4rem 1.5rem 1.6rem;
+      border-radius:var(--radius-lg);
+      background:radial-gradient(circle at top,#0b1120,#020617 55%);
+      border:1px solid rgba(148,163,184,0.4);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+    .hero-panel::before{
+      content:"";position:absolute;inset:-80px;
+      background:
+        radial-gradient(circle at 0% 0%,rgba(56,189,248,0.2),transparent 55%),
+        radial-gradient(circle at 100% 0%,rgba(129,140,248,0.22),transparent 55%);
+      opacity:.5;pointer-events:none;
+    }
+    .panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;position:relative;z-index:1;}
+    .panel-head h3{font-size:0.95rem;color:var(--muted);}
+    .chip{
+      padding:0.22rem 0.7rem;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.45);
+      font-size:0.74rem;color:var(--muted);
+      background:rgba(15,23,42,0.9);
+    }
+    .stat-row{
+      display:flex;gap:0.85rem;flex-wrap:wrap;margin-bottom:1rem;position:relative;z-index:1;
+    }
+    .stat{
+      flex:1 1 100px;
+      background:rgba(15,23,42,0.9);
+      border-radius:var(--radius-md);
+      padding:0.65rem 0.8rem;
+      border:1px solid rgba(51,65,85,0.95);
+      font-size:0.8rem;
+    }
+    .stat label{display:block;font-size:0.72rem;color:var(--muted);}
+    .stat span{font-weight:500;}
+    .code-block{
+      margin-top:0.6rem;
+      background:radial-gradient(circle at top left,#020617,#020617 60%);
+      border-radius:var(--radius-md);
+      padding:0.85rem 0.9rem;
+      border:1px solid rgba(30,64,175,0.9);
+      font-family:"JetBrains Mono","Fira Code",monospace;
+      font-size:0.78rem;
+      color:#e5e7eb;
+      position:relative;z-index:1;
+    }
+    .code-tag{
+      position:absolute;top:0.45rem;right:0.55rem;
+      font-size:0.7rem;color:var(--muted);
+    }
+    .code-accent{color:#38bdf8;}
+    .code-str{color:#f97316;}
+    .code-kw{color:#22c55e;}
+
+    /* Sections */
+    .section-title{
+      font-size:1.25rem;margin-bottom:1.2rem;
+      display:flex;align-items:center;gap:0.55rem;
+    }
+    .section-title span.bar{
+      width:42px;height:1.5px;
+      background:linear-gradient(90deg,var(--accent),#a855f7);
+      border-radius:999px;
+    }
+
+    .grid-2{
+      display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+      gap:1.7rem;
+    }
+    .card{
+      background:linear-gradient(145deg,rgba(15,23,42,0.95),rgba(15,23,42,1));
+      border-radius:var(--radius-lg);
+      padding:1.15rem 1.25rem;
+      border:1px solid var(--border);
+      box-shadow:0 10px 35px rgba(15,23,42,0.85);
+    }
+    .card h3{font-size:1rem;margin-bottom:0.35rem;}
+    .card small{color:var(--muted);font-size:0.78rem;}
+    .card p{color:var(--muted);font-size:0.9rem;margin-top:0.4rem;}
+
+    .pill-row{
+      display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.6rem;
+    }
+    .pill{
+      font-size:0.78rem;padding:0.25rem 0.7rem;
+      border-radius:999px;
+      border:1px solid rgba(51,65,85,0.95);
+      background:rgba(15,23,42,0.95);
+      color:var(--muted);
+    }
+
+    .timeline-item{margin-bottom:0.9rem;font-size:0.9rem;color:var(--muted);}
+    .timeline-item strong{color:var(--text);}
+
+    ul{margin-left:1.1rem;color:var(--muted);font-size:0.9rem;}
+    ul li{margin-bottom:0.25rem;}
+
+    footer{
+      padding:1.5rem 1.25rem 2.4rem;
+      text-align:center;font-size:0.8rem;color:var(--muted);
+      border-top:1px solid rgba(15,23,42,0.9);
+      background:radial-gradient(circle at bottom,#020617,#000 45%);
+    }
+
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:minmax(0,1fr);}
+      .grid-2{grid-template-columns:minmax(0,1fr);}
+      .nav-wrap{flex-direction:column;align-items:flex-start;}
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Nithish Kumar</h1>
-    <p>Full Stack Developer</p>
+<header>
+  <div class="nav-wrap">
+    <div class="brand">
+      <div class="avatar"></div>
+      <div class="brand-text">
+        <h1>NALLA NITHISH KUMAR</h1>
+        <p>Software Developer · Web & Frontend</p>
+      </div>
+    </div>
     <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
     </nav>
-  </header>
+  </div>
+</header>
 
+<main>
+  <!-- HERO -->
   <section id="about">
-    <h2>About Me</h2>
-    <p>Master of Computer Application, Anurag University, Hyderabad (CGPA: 7.8/10)</p>
-    <p>B.Sc., Aurora Degree & PG College, Hyderabad (CGPA: 8.1/10)</p>
-    <p>Front-end developer with skills in Python, JavaScript, HTML, CSS, Bootstrap, PHP, MySQL and more.</p>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span>Available for trainee / ASE roles</span>
+        </div>
+        <h2 class="hero-title">
+          Turning ideas into <span>clean, performant</span> web experiences.
+        </h2>
+        <p class="hero-sub">
+          Entry‑level Software Developer with a strong base in HTML, CSS, Bootstrap,
+          JavaScript, Python and MySQL. Comfortable taking a feature from requirement
+          to UI, API integration, testing and deployment, with a focus on clarity,
+          maintainability and user experience.
+        </p>
+        <div class="hero-meta">
+          <div>
+            <strong>Location</strong><br/>Hyderabad, India
+          </div>
+          <div>
+            <strong>Current</strong><br/>MCA · Anurag University
+          </div>
+          <div>
+            <strong>Focus Areas</strong><br/>Frontend · Web Apps
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View my work</a>
+          <a class="btn btn-outline" href="mailto:nnithishkumarnalla5@gmail.com">
+            Email me
+          </a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/nithishkumar-nalla-617b94228" target="_blank">
+            LinkedIn
+          </a>
+          <a class="btn btn-outline" href="https://github.com/Nithishkumar786" target="_blank">
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="panel-head">
+          <h3>Profile Snapshot</h3>
+          <span class="chip">MCA · Web Dev · Python</span>
+        </div>
+        <div class="stat-row">
+          <div class="stat">
+            <label>Stacks</label>
+            <span>HTML · CSS · JS · Python · PHP · MySQL</span>
+          </div>
+          <div class="stat">
+            <label>Strengths</label>
+            <span>Problem‑solving, clean UI, quick learning</span>
+          </div>
+        </div>
+        <div class="code-block">
+          <span class="code-tag">pseudo-profile.ts</span>
+<pre>
+<span class="code-kw">const</span> <span class="code-accent">nithish</span> = {
+  role: <span class="code-str">'Software Developer'</span>,
+  focus: [<span class="code-str">'frontend'</span>, <span class="code-str">'web apps'</span>],
+  tools: [<span class="code-str">'HTML'</span>, <span class="code-str">'CSS'</span>, <span class="code-str">'JS'</span>, <span class="code-str">'Python'</span>],
+  lookingFor: <span class="code-str">'trainee / ASE roles'</span>
+}
+</pre>
+        </div>
+      </aside>
+    </div>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>HTML5, CSS, Bootstrap</li>
-      <li>JavaScript</li>
-      <li>PHP</li>
-      <li>MySQL, SQL (DDL, DML, TCL, DQL, DCL)</li>
-      <li>GitHub</li>
-      <li>XAMPP, Visual Studio</li>
-      <li>Basic Azure, SDLC, Agile</li>
-    </ul>
-  </section>
-
+  <!-- PROJECTS -->
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>InfoSeek - Wikipedia Search App</h3>
-      <p>Built a responsive website using Fetch API to display title, link and text from Wikipedia based on user input.</p>
-      <a href="https://nithishkumar786.github.io/infoseek/" target="_blank">View Project</a>
-    </div>
+    <h2 class="section-title"><span class="bar"></span>Highlighted Projects</h2>
+    <div class="grid-2">
+      <article class="card">
+        <h3>InfoSeek · Responsive Search Website</h3>
+        <small>HTML5 · CSS · Bootstrap · JavaScript</small>
+        <p>
+          Fully responsive search interface that consumes external APIs via Fetch
+          and renders titles, links and summaries in real time. Designed for clean
+          typography, spacing and smooth behaviour across mobile, tablet and desktop.
+        </p>
+        <ul>
+          <li>Handled async Fetch API calls and nested JSON responses gracefully.</li>
+          <li>Implemented dynamic DOM rendering and error states for better UX.</li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">API Integration</span>
+          <span class="pill">Responsive UI</span>
+          <span class="pill">Vanilla JS</span>
+        </div>
+      </article>
 
-    <div class="project">
-      <h3>Weather Dashboard</h3>
-      <p>A weather app that shows temperature, wind speed, pressure, and sea level using OpenWeatherMap API.</p>
-      <a href="https://nithishkumar786.github.io/know_wheather/" target="_blank">View Project</a>
-    </div>
+      <article class="card">
+        <h3>Face Detection Insurance System</h3>
+        <small>Python · OpenCV · MySQL · HTML · CSS</small>
+        <p>
+          Web application that captures customer photos and performs face detection
+          using OpenCV, combining form‑based data collection with secure MySQL
+          storage and a modular backend.
+        </p>
+        <ul>
+          <li>Designed input flows for personal and health data, wired to database tables.</li>
+          <li>Created UML diagrams and modular structure to keep logic clear and testable.</li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">OpenCV</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">Architecture</span>
+        </div>
+      </article>
 
-    <div class="project">
-      <h3>AI-Powered Face Detection & Insurance Health Data</h3>
-      <p>Integrated face detection with user health info for insurance system. Inputs include name, gender, BP, diabetes, smoking, alcohol etc.</p>
-      <a href="https://nithishkumar786.github.io/AI-Powered-Face-Detection-and-Health-Data-Integration-for-Insuranc/" target="_blank">View Project</a>
-    </div>
+      <article class="card">
+        <h3>Multi‑Service Web Platform</h3>
+        <small>HTML5 · CSS · Bootstrap · PHP · MySQL · XAMPP</small>
+        <p>
+          Role‑based portal for connecting customers with insurance service providers,
+          including dashboards for services, customers and orders, and responsive
+          layouts built with Bootstrap.
+        </p>
+        <ul>
+          <li>Implemented secure login, navigation and CRUD flows for multiple roles.</li>
+          <li>Designed MySQL schema and SQL queries for day‑to‑day operations.</li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">Role‑based Auth</span>
+          <span class="pill">CRUD</span>
+          <span class="pill">Bootstrap UI</span>
+        </div>
+      </article>
 
-    <div class="project">
-      <h3>Service Portal (Major Project)</h3>
-      <p>Developed a web platform to connect customers and service providers. Role-based login, dashboard management, service search and order functionality.</p>
+      <article class="card">
+        <h3>More work & experiments</h3>
+        <small>On GitHub · Personal sandbox</small>
+        <p>
+          Small UI components, layout experiments and code snippets created while
+          learning new libraries, tools and problem‑solving patterns.
+        </p>
+        <ul>
+          <li>Includes JavaScript utilities, Python practice scripts and mini UIs.</li>
+          <li>Helps track learning progress and coding style evolution over time.</li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">Practice</span>
+          <span class="pill">Code Quality</span>
+          <span class="pill">Learning Mindset</span>
+        </div>
+      </article>
     </div>
   </section>
 
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title"><span class="bar"></span>Skills & Toolbox</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Technical</h3>
+        <div class="pill-row">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">Bootstrap</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">Python</span>
+          <span class="pill">PHP (basic)</span>
+          <span class="pill">MySQL · SQL</span>
+          <span class="pill">OpenCV (basic)</span>
+          <span class="pill">Git & GitHub</span>
+          <span class="pill">XAMPP</span>
+          <span class="pill">Cloud Concepts</span>
+          <span class="pill">VS Code</span>
+          <span class="pill">SDLC · Agile basics</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Certifications & Strengths</h3>
+        <ul>
+          <li>Kotlin Programming – Google Developers (AICTE Virtual Internship).</li>
+          <li>Python Programming – HackerRank (Entry level).</li>
+          <li>Analytical thinking, problem‑solving and attention to detail.</li>
+          <li>Comfortable explaining technical decisions in simple language.</li>
+          <li>Curious, adaptable and focused on continuous improvement.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section id="journey">
+    <h2 class="section-title"><span class="bar"></span>Learning Journey</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Education</h3>
+        <div class="timeline-item">
+          <strong>MCA – Anurag University, Hyderabad</strong><br/>
+          2023 – 2025
+        </div>
+        <div class="timeline-item">
+          <strong>BSc – Aurora Degree & PG College, Hyderabad</strong><br/>
+          2019 – 2022
+        </div>
+        <div class="timeline-item">
+          <strong>Intermediate – Narayana Junior College, Hyderabad</strong><br/>
+          2017 – 2019
+        </div>
+      </div>
+      <div class="card">
+        <h3>What drives me</h3>
+        <p>
+          Enjoys understanding how things work under the hood and then building
+          interfaces that feel simple and intuitive on top of that. Values
+          readable code, clear communication and teams where everyone is
+          learning together.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: nithishkumarnalla5@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/nithishkumar786" target="_blank">github.com/nithishkumar786</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/nithishkumar-nalla-617b94228">linkedin.com/in/nithishkumar</a></p>
+    <h2 class="section-title"><span class="bar"></span>Let’s Connect</h2>
+    <div class="card">
+      <p>
+        Open to Associate / Trainee Software Engineer and Web Developer roles
+        across India. If the work involves building clear UIs, integrating APIs
+        and learning new tools, it will be a good fit.
+      </p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:nnithishkumarnalla5@gmail.com">nnithishkumarnalla5@gmail.com</a></li>
+        <li><strong>Phone:</strong> +91‑6301697657</li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nithishkumar-nalla-617b94228" target="_blank">
+            linkedin.com/in/nithishkumar-nalla-617b94228</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/Nithishkumar786" target="_blank">
+            github.com/Nithishkumar786</a></li>
+      </ul>
+    </div>
   </section>
+</main>
 
-  <footer>
-    <p>&copy; 2025 Nithish Kumar. All rights reserved.</p>
-  </footer>
+<footer>
+  © <span id="year"></span> Nalla Nithish Kumar · Built with semantic HTML & handcrafted CSS.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
